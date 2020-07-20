@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:emall/pages/product_details.dart';
 
 class Product extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _ProductState extends State<Product> {
     return GridView.builder(
         itemCount: productlist.length,
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
           return Single_prod(
             prod_name: productlist[index]['name'],
@@ -56,10 +57,11 @@ class Single_prod extends StatelessWidget {
   final prod_old_price;
   final prod_price;
 
-  Single_prod({this.prod_name,
-    this.prod_old_price,
-    this.prod_picture,
-    this.prod_price});
+  Single_prod(
+      {this.prod_name,
+      this.prod_old_price,
+      this.prod_picture,
+      this.prod_price});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,8 @@ class Single_prod extends StatelessWidget {
           tag: prod_name,
           child: Material(
             child: InkWell(
-              onTap: () => Navigator.of(context).push(route),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (context) => new ProductDetails())),
               child: GridTile(
                   footer: Container(
                     color: Colors.white70,
@@ -87,8 +90,7 @@ class Single_prod extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black54,
                             fontWeight: FontWeight.w800,
-                            decoration
-                                :TextDecoration.lineThrough),
+                            decoration: TextDecoration.lineThrough),
                       ),
                     ),
                   ),
@@ -100,5 +102,4 @@ class Single_prod extends StatelessWidget {
           )),
     );
   }
-
 }
