@@ -45,8 +45,10 @@ class HorizontalList extends StatelessWidget {
 class Category extends StatelessWidget {
   // ignore: non_constant_identifier_names
   final String image_location;
+  // ignore: non_constant_identifier_names
   final String image_caption;
 
+  // ignore: non_constant_identifier_names
   Category({this.image_caption, this.image_location});
 
   @override

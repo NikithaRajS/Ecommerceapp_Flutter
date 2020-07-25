@@ -71,11 +71,28 @@ class Single_prod extends StatelessWidget {
           child: Material(
             child: InkWell(
               onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                  builder: (context) => new ProductDetails())),
+                //Here we are passing the values of product to ProductDetails
+                  builder: (context) => new ProductDetails(
+                      product_detail_name: prod_name,
+                      product_detail_newprice: prod_price,
+                      product_detail_oldprice: prod_old_price,
+                      product_detail_picture: prod_picture))),
               child: GridTile(
                   footer: Container(
                     color: Colors.white70,
-                    child: ListTile(
+                     child:Row(
+                       children: [
+                         Expanded(child: Text("${prod_name}")),
+                         Expanded(child: Text("\$${prod_price}"))
+                       ],
+                     )
+
+
+
+
+
+
+                    /* ListTile(
                       leading: Text(
                         prod_name,
                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -92,7 +109,7 @@ class Single_prod extends StatelessWidget {
                             fontWeight: FontWeight.w800,
                             decoration: TextDecoration.lineThrough),
                       ),
-                    ),
+                    ),  */
                   ),
                   child: Image.asset(
                     prod_picture,
