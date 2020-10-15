@@ -105,7 +105,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           );
                         });
                   },
-                  elevation: 0.2,
+                  elevation: 0.4,
                   color: Colors.white,
                   child: Row(
                     children: [
